@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CustomFormsModule } from 'ng2-validation';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,6 +49,7 @@ import {ProductService} from './product.service';
       AngularFireAuthModule,
       NgbModule,
       FormsModule,
+      CustomFormsModule,
       RouterModule.forRoot([
           { path: '', component: HomeComponent },
           { path: 'products', component: ProductsComponent },
@@ -59,6 +61,7 @@ import {ProductService} from './product.service';
           { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
           { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuard] },
           { path: 'admin/products/new', component: ProductFormComponent, canActivate: [AuthGuard] },
+          { path: 'admin/products/:id', component: ProductFormComponent, canActivate: [AuthGuard] },
           { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuard] }
       ])
   ],
