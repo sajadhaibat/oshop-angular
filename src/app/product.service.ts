@@ -19,9 +19,7 @@ export class ProductService {
   }
 
   getProduct(productId) {
-      return this.db.object('/products' + productId).snapshotChanges().map(c => {
-        return c.payload.val;
-      });
+      return this.db.object('/products/' + productId);
 
   }
 }

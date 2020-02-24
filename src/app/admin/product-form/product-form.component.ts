@@ -26,8 +26,7 @@ export class ProductFormComponent {
     const id = this.route.snapshot.paramMap.get('id');
     // console.log(id);
     if (id) {
-     this.productService.getProduct(id).take(1).subscribe(p => {this.product = p;});
-
+        this.productService.getProduct(id).valueChanges().take(1).subscribe(p => {this.product = p; });
     }
 
   }
