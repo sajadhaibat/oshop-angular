@@ -9,6 +9,8 @@ export class CategoryService {
   constructor(private db: AngularFireDatabase) { }
 
   getCategories() {
-    return this.db.list('/categories');
+    return this.db.list('/categories').snapshotChanges().map(changes => {
+        return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+    });
   }
 }
